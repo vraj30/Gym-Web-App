@@ -18,7 +18,7 @@ const Navbar = () => {
             Authorization: `Bearer ${token}`
           }
         };
-        const res = await axios.get('http://localhost:8080/api/users/me', config);
+        const res = await axios.get('https://gym-app-backend-sm1f.onrender.com/api/users/me', config);
         console.log('Fetched user data:', res.data); // Debug: Check the fetched user data
         setUserName(res.data.name);
       } catch (error) {
