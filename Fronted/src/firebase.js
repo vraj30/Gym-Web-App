@@ -9,7 +9,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyADPtf-5UUPe6pRLjVgExViaphcRBTDhVU",
-  authDomain:"power-house-gym-f39a7.firebaseapp.com",
+  authDomain:"gym-app-frontend-ie92.onrender.com",
   projectId: "power-house-gym-f39a7",
   storageBucket: "power-house-gym-f39a7.appspot.com",
   messagingSenderId: "397420466474",
