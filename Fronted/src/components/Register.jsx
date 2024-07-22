@@ -18,7 +18,7 @@ const Register = () => {
   const onSubmit = async e => {
     e.preventDefault(); 
     try {
-      const res = await axios.post('http://localhost:8080/register', formData);
+      const res = await axios.post('https://gym-app-backend-sm1f.onrender.com/register', formData);
       console.log(res.data); // Check the response data
   
     
