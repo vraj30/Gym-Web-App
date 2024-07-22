@@ -25,7 +25,7 @@ const EnrollForm = () => {
             Authorization: `Bearer ${token}`
           }
         };
-        const res = await axios.get('http://localhost:8080/api/users/me', config);
+        const res = await axios.get('https://gym-app-backend-sm1f.onrender.com/api/users/me', config);
         console.log('Fetched user data:', res.data); // Debug: Check the fetched user data
         setName(res.data.name);
         setEmail(res.data.email); // Set email from fetched user data
@@ -47,7 +47,7 @@ const EnrollForm = () => {
     };
 
     try {
-      await axios.post('http://localhost:8080/api/enroll', formData);
+      await axios.post('https://gym-app-backend-sm1f.onrender.com/api/enroll', formData);
       toast.success("Successfully Enrolled! Power House Team will contact you soon!");
       navigate('/home'); 
     } catch (error) {
