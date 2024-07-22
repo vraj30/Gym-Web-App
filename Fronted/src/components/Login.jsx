@@ -19,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/login', { email, password });
+      const response = await axios.post('https://gym-app-backend-sm1f.onrender.com/login', { email, password });
       localStorage.setItem('token', response.data.token);
       toast.success("Login successful!");
       navigate('/home');
@@ -35,7 +35,7 @@ const Login = () => {
       const token = result.user.accessToken; // Get the access token
       
       // Send this token to your backend to register the user
-      const res = await axios.post('http://localhost:8080/auth/google', {
+      const res = await axios.post('https://gym-app-backend-sm1f.onrender.com/auth/google', {
         token,
       });
       localStorage.setItem('token', res.data.token);
