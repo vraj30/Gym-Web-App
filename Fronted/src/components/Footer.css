@@ -1,0 +1,74 @@
+.footer {
+    position: relative;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    background-image: url('/footer.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .footer-background {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    padding: 20px;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; /* Align items at the top */
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin: 0 20px;
+  }
+  
+  .map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+  }
+  
+  .map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eaeaea;
+  }
+  
+  .footer-section h2 {
+    color: #fff; /* Text color for section headings */
+    font-size: 1.8rem; /* Increase font size for headings */
+    margin-bottom: 15px; /* Increased margin for headings */
+  }
+  
+  .contact-info {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.1rem; /* Increase font size for contact info */
+  }
+  
+  .contact-info li {
+    margin-bottom: 10px; /* Adjust margin between list items */
+  }
+  
+  .contact-info strong {
+    font-weight: bold;
+    color: #fff; /* Text color for strong elements */
+  }
+  
+  .footer-bottom p {
+    color: #e9e9e9; /* Text color for footer bottom content */
+  }
+  
