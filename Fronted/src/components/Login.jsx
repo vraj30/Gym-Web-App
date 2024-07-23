@@ -24,7 +24,7 @@ const Login = () => {
       toast.success("Login successful!");
       navigate('/home');
     } catch (error) {
-      setError('Invalid credentials. Please try again.');
+      
       toast.error("Invalid credentials. Please try again.");
     }
   };
