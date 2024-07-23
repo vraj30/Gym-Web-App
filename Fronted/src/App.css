@@ -34,7 +34,7 @@ header {
   word-spacing: 5px;
   border: 2px solid whitesmoke; /* Move border styling here */
   padding: 8px 12px; /* Add padding to title */
-  margin-left: 25px;
+  /* margin-left: 25px; */
 }
 
 .user-info {
