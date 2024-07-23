@@ -15,12 +15,12 @@ const Footer = () => {
             </ul>
           </div>
           <div className="footer-section">
-            <h2>Location</h2>
+            <h2>Visit Us</h2>
             <div className="map-responsive">
-              {/* Replace the iframe URL with your actual map embed code */}
               <iframe
                 title="Gym Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.9115491406283!2d72.82604909686135!3d21.195672400058186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f9552a37b91%3A0x18236ba46a050d8f!2sPower%20House%20Gym!5e0!3m2!1sen!2sin!4v1720259322245!5m2!1sen!2sin"                 width="100%"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.9115491406283!2d72.82604909686135!3d21.195672400058186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f9552a37b91%3A0x18236ba46a050d8f!2sPower%20House%20Gym!5e0!3m2!1sen!2sin!4v1720259322245!5m2!1sen!2sin"
+                width="100%"
                 height="200"
                 frameBorder="0"
                 allowFullScreen=""
@@ -28,6 +28,17 @@ const Footer = () => {
                 tabIndex="0"
               ></iframe>
             </div>
+          </div>
+          <div className="footer-section">
+            <h2>Follow Us</h2>
+            <ul className="contact-info">
+              <li>
+                <a href="https://www.instagram.com/powerhouse.gym999/" target="_blank" rel="noopener noreferrer">
+                  <i className="fab fa-instagram"></i>  Instagram
+                </a>
+              </li>
+              <li>Feel free to DM on Instagram regarding any queries.</li>
+            </ul>
           </div>
         </div>
       </div>
