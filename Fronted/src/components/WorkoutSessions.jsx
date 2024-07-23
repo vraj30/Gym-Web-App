@@ -64,10 +64,11 @@ const WorkoutSessions = () => {
           </div>
           {/* Navigation buttons */}
           <div className="scroll-buttons">
-            <button onClick={scrollLeft}>{'<'}</button>
-            <button onClick={scrollRight}>{'>'}</button>
+            <button onClick={scrollLeft} className="scroll-button-left">{'<'}</button>
+            <button onClick={scrollRight} className="scroll-button-right">{'>'}</button>
           </div>
         </div>
+        
       </div>
     </section>
   );
