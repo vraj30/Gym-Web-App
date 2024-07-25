@@ -7,7 +7,7 @@ const Pricing = () => {
     {
       imgUrl: "/pricing.jpg",
       title: "MONTHLY",
-      price: 1000,
+      price: 1999,
       length: 1,
       description: [
         "All Equipment and Machine Access",
@@ -20,7 +20,7 @@ const Pricing = () => {
     {
       imgUrl: "/pricing.jpg",
       title: "HALF_YEARLY",
-      price: 3500,
+      price: 8999,
       length: 6,
       description: [
         "All Equipment and Machine Access",
@@ -36,7 +36,7 @@ const Pricing = () => {
     {
       imgUrl: "/pricing.jpg",
       title: "YEARLY",
-      price: 6000,
+      price: 17999,
       length: 12,
       description: [
         "All Equipment and Machine Access",
