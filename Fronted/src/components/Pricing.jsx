@@ -29,7 +29,8 @@ const Pricing = () => {
         "Free Locker Access",
         "Access to Group Fitness Classes",
         "24/7 Skilled Support",
-        "Complimentary Health Check-Up"
+       "Complimentary Health Check-Up",
+        "1 Yoga Session & 1 Zumba Class per month"
       ]
     },
     {
@@ -45,7 +46,8 @@ const Pricing = () => {
         "Access to Group Fitness Classes",
         "24/7 Skilled Support",
         "Complimentary Health Check-Up",
-        "Free Nutrition Counseling Session"
+         "Free Nutrition Counseling Session",
+        "2 Yoga Session & 2 Zumba classes per month"
       ]
     }
   ];
