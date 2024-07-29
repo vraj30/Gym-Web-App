@@ -21,8 +21,7 @@ const Register = () => {
       const res = await axios.post('https://gym-app-backend-sm1f.onrender.com/register', formData);
       console.log(res.data); // Check the response data
   
-    
-      toast.success("User Registered Successfully!", {
+      toast.success(res.data.msg, {
         onClose: () => {
           window.location.href = '/login'; // Redirect to login page after toast is closed
         }
@@ -30,7 +29,7 @@ const Register = () => {
   
     } catch (err) {
       console.error(err.response.data); // Log the error response
-      toast.error("There is a problem in registering the user!"); // Display error to the user
+      toast.error(err.response.data.msg); // Display error to the user
     }
   };
 
