@@ -53,6 +53,7 @@ enrollmentsConnection.on('error', (err) => {
 // Routes
 
 // Register Route
+
 app.post('/register', async (req, res) => {
   const { name, email, password, repeatPassword } = req.body;
 
@@ -80,13 +81,13 @@ app.post('/register', async (req, res) => {
 
     await user.save();
 
-    // Send verification email
+    // Send verification email with a plain text URL
     const verificationUrl = `http://localhost:5173/verify/${verificationToken}`;
     await sendEmail({
       email,
       subject: "Verify your email address",
-      message: `Click <a href="${verificationUrl}">here</a> to verify your email.`,
-      userEmail: email,
+      message: `Please verify your email by visiting the following link: ${verificationUrl}`,
+      type: 'verification', 
     });
 
     res.status(201).json({ msg: "User registered successfully. Please check your email for verification." });
