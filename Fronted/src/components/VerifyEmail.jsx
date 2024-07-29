@@ -15,7 +15,7 @@ const VerifyEmail = () => {
 
   const verifyEmail = async () => {
     try {
-      const res = await axios.get(`http://localhost:8080/verify/${token}`);
+      const res = await axios.get(`https://gym-app-backend-sm1f.onrender.com/verify/${token}`);
       console.log('Verification success:', res.data.msg);
       toast.success(res.data.msg);
       setVerified(true);
