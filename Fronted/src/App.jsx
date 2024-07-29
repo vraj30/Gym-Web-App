@@ -13,7 +13,8 @@ import BMICalc from "./components/BMICalc";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import EnrollForm from "./components/EnrollForm";  // Import the EnrollForm component
+import EnrollForm from "./components/EnrollForm";  
+import VerifyEmail from './components/VerifyEmail';
 
 const App = () => {
   const pricingRef = useRef(null);
@@ -32,7 +33,9 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        
         <Route path="/enroll" element={<EnrollForm />} /> {/* Add EnrollForm route */}
+        <Route path="/verify/:token" element={<VerifyEmail />} />
         <Route path="/home" element={
           <>
             <Navbar />
@@ -49,6 +52,7 @@ const App = () => {
             <Footer />
           </>
         } />
+        
         <Route path="/" element={<Navigate to="/home" />} />
       </Routes>
       <ToastContainer theme='dark' position='top-center' />
