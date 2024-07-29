@@ -11,11 +11,16 @@ export const sendEmail = async (options) => {
         },
     });
 
+    // Conditionally include the "Email of sender" part based on the email type
+    const emailContent = options.type === 'verification' 
+        ? `${options.message}\n\n` 
+        : `${options.message}\n\nEmail of sender: ${options.userEmail}`;
+
     const mailOptions = {
         from: process.env.SMTP_MAIL,
         to: options.email,
         subject: options.subject,
-        text: `${options.message} \n\n Email of sender: ${options.userEmail}`,
+        text: emailContent,
     };
 
     await transporter.sendMail(mailOptions);
