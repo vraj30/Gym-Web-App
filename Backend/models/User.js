@@ -20,6 +20,13 @@ const UserSchema = new mongoose.Schema({
   googleId: {
     type: String
     // No 'required' property here because it's only used for Google OAuth users
+  },
+  verified: {
+    type: Boolean,
+    default: false
+  },
+  verificationToken: {
+    type: String
   }
 });
 
