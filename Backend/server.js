@@ -12,6 +12,7 @@ import { sendEmail } from './utils/sendEmail.js';
 import authMiddleware from './middleware/authMiddleware.js';
 import serviceAccount from './firebaseAdminsdk.json' assert { type: 'json' };  
 import admin from 'firebase-admin';
+import crypto from 'crypto';
 
 
 
@@ -65,22 +66,69 @@ app.post('/register', async (req, res) => {
       return res.status(400).json({ msg: "User already exists" });
     }
 
+    const verificationToken = crypto.randomBytes(32).toString('hex');
+
     user = new User({
       name,
       email,
-      password
+      password,
+      verificationToken
     });
 
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
 
     await user.save();
-    res.status(201).json({ msg: "User registered successfully" });
+
+    // Send verification email
+    const verificationUrl = `http://localhost:5173/verify/${verificationToken}`;
+    await sendEmail({
+      email,
+      subject: "Verify your email address",
+      message: `Click <a href="${verificationUrl}">here</a> to verify your email.`,
+      userEmail: email,
+    });
+
+    res.status(201).json({ msg: "User registered successfully. Please check your email for verification." });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");
   }
 });
+
+// Verify Email Route
+app.get('/verify/:token', async (req, res) => {
+  const { token } = req.params;
+  console.log(`Verifying token: ${token}`);
+
+  try {
+    // Find the user with the matching verification token
+    const user = await User.findOne({ verificationToken: token });
+    
+    if (!user) {
+      console.log('Invalid token or token has already been used');
+      return res.status(400).json({ msg: 'Invalid token or token has already been used' });
+    }
+
+    // Check if the user is already verified
+    if (user.verified) {
+      console.log('User already verified');
+      return res.status(400).json({ msg: 'Email already verified. Please log in.' });
+    }
+
+    // Mark the user as verified and clear the token
+    user.verified = true;
+    user.verificationToken = null; // Invalidate the token
+    await user.save();
+
+    console.log('Email verified successfully');
+    res.status(200).json({ msg: 'Email verified successfully. You can now log in.' });
+  } catch (err) {
+    console.error('Server error:', err.message);
+    res.status(500).json({ msg: 'Server error. Please try again later.' });
+  }
+});
+
 
 // Login Route
 app.post('/login', async (req, res) => {
@@ -90,6 +138,10 @@ app.post('/login', async (req, res) => {
     let user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ msg: "Invalid credentials" });
+    }
+
+    if (!user.verified) {
+      return res.status(400).json({ msg: "Please verify your email before logging in" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
@@ -212,7 +264,7 @@ app.post('/api/enroll', async (req, res) => {
 
     // Send email notification
     await sendEmail({
-      email: "infernot03@gmail.com", // Your email address
+      email: "infernot03@gmail.com",
       subject: "New Enrollment",
       message: `Name: ${name}\nMobile: ${mobile}\nPlan Type: ${planType}`, 
       userEmail: email, 
