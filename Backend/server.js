@@ -82,7 +82,7 @@ app.post('/register', async (req, res) => {
     await user.save();
 
     // Send verification email with a plain text URL
-    const verificationUrl = `http://localhost:5173/verify/${verificationToken}`;
+    const verificationUrl = `https://power-house-gym-v1b7.onrender.com/verify/${verificationToken}`;
     await sendEmail({
       email,
       subject: "Verify your email address",
