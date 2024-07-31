@@ -54,6 +54,7 @@ enrollmentsConnection.on('error', (err) => {
 
 // Register Route
 
+
 app.post('/register', async (req, res) => {
   const { name, email, password, repeatPassword } = req.body;
 
@@ -96,8 +97,7 @@ app.post('/register', async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-
-// Verify Email Route
+//Verify Email Route
 app.get('/verify/:token', async (req, res) => {
   const { token } = req.params;
   console.log(`Verifying token: ${token}`);
@@ -169,12 +169,12 @@ app.post('/login', async (req, res) => {
 // Fetch User Data Route
 app.get('/api/users/me', authMiddleware, async (req, res) => {
   try {
-    console.log('User ID from token:', req.user.id); // Debug: Check the user ID
+   // console.log('User ID from token:', req.user.id); // Debug: Check the user ID
     const user = await User.findById(req.user.id).select('-password');
     if (!user) {
       return res.status(404).json({ msg: 'User not found' });
     }
-    console.log('Fetched user data:', user); // Debug: Check the fetched user data
+    //console.log('Fetched user data:', user); // Debug: Check the fetched user data
     res.json(user);
   } catch (err) {
     console.error('Server Error:', err.message);
@@ -216,6 +216,7 @@ app.post("/send/mail", async (req, res) => {
 // Google Auth Routes
 app.post('/auth/google', async (req, res) => {
   const { token } = req.body;
+  //console.log("Server-side Token:", token); // Log token for debugging
 
   try {
     const decodedToken = await admin.auth().verifyIdToken(token);
@@ -242,7 +243,6 @@ app.post('/auth/google', async (req, res) => {
     res.status(500).send('Server error');
   }
 });
-
 // Enrollment Route
 app.post('/api/enroll', async (req, res) => {
   const { name, email, mobile, planType } = req.body;
