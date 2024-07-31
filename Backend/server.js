@@ -195,7 +195,7 @@ app.post("/send/mail", async (req, res) => {
   try {
     await sendEmail({
       email: "infernot03@gmail.com",
-      subject: "GYM WEBSITE CONTACT",
+      subject: "CUSTOMER QUERY/CONTACT",
       message,
       userEmail: email,
     });
